@@ -1,9 +1,6 @@
 package com.ortsevlised.Springer;
 
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 
 /**
  * Created by Jorge on 16/12/2015.

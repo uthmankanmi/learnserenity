@@ -1,6 +1,5 @@
 package com.ortsevlised.Springer.pages;
 
-import com.ortsevlised.Springer.models.User;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
@@ -12,53 +11,25 @@ import net.thucydides.core.pages.PageObject;
  */
 @DefaultUrl(LoginPage.SPRINGER_LOGIN_PAGE)
 
-public class LoginPage extends PageObject {
-    public static final String SPRINGER_LOGIN_PAGE = "http://link.springer.com/signup-login";
+public class LoginPage extends BasePage {
 
-    User user;
+    public static final String SPRINGER_LOGIN_PAGE = "http://testid-www.nature.com/index";
 
-    @FindBy(id = "login-box-email")
-    public WebElementFacade inputLoginEmail;
 
-    @FindBy(id = "login-box-pw")
-    public WebElementFacade inputLoginPassword;
+    @FindBy(xpath = ("//*[p='Log in with id.nature.com requesting email profile scope']"))
+    public WebElementFacade requestEmailprofileLink;
 
-    @FindBy(css = "#login-box .form-submit")
-    public WebElementFacade btnLogIn;
+    @FindBy(id = "login-email")
+    public WebElementFacade emailInput;
 
-    @FindBy(id = "user")
-    public WebElementFacade btnUser;
+    @FindBy(id = "login-password")
+    public WebElementFacade passwordInput;
 
-    @FindBy(id = "register-link")
-    public WebElementFacade btnSignIn;
+    @FindBy(css = "[type='submit']")
+    public WebElementFacade submitBtn;
 
-    /**
-     * Logging in with valid user
-     *
-     * @return
-     */
 
-    public void loginWithValidCredentials() {
-        user = new User();
-        inputLoginEmail.type(user.getEmail());
-        inputLoginPassword.type(user.getPassword());
-        btnLogIn.submit();
-        waitFor(btnUser);
-    }
 
-    /**
-     * Checking the user is logged in
-     */
-    public boolean isUserLoggedIn() {
-        return !getDriver().manage().getCookieNamed("sim-user-token").getValue().isEmpty() && btnUser.isVisible();
-    }
-
-    /**
-     * Checking the user is logged out
-     */
-    public boolean isUserLoggedOut() {
-        return getDriver().manage().getCookieNamed("sim-user-token") == null;
-    }
 }
 
 
