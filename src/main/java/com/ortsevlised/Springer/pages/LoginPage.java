@@ -13,7 +13,7 @@ import net.thucydides.core.pages.PageObject;
 
 public class LoginPage extends BasePage {
 
-    public static final String SPRINGER_LOGIN_PAGE = "http://testid-www.nature.com/index";
+    public static final String SPRINGER_LOGIN_PAGE = "https://testid-www.nature.com/index";
 
 
     @FindBy(xpath = ("//*[p='Log in with id.nature.com requesting email profile scope']"))
