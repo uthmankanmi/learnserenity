@@ -40,6 +40,11 @@ public class LoginDefinitions {
         loginSteps.clickOnSubmit();
     }
 
+    @Then("^I see a confirmation page$")
+    public void i_see_a_confirmation_page() {
+        loginSteps.iSeeConfirmationPage();
+    }
+
     @Then("^login button should be disabled$")
     public void login_button_should_be_disabled() {
         loginSteps.loginBtnShouldBeDisabled();

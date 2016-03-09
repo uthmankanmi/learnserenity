@@ -28,6 +28,9 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[type='submit']")
     public WebElementFacade submitBtn;
 
+    @FindBy(xpath = "/x:html/x:body/x:h2")
+    public WebElementFacade reviewtext;
+
 
 
 }

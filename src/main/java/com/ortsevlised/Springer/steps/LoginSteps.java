@@ -3,6 +3,7 @@ package com.ortsevlised.Springer.steps;
 import com.ortsevlised.Springer.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.core.steps.WaitForBuilder;
 
 
 /**
@@ -34,7 +35,8 @@ public class LoginSteps extends ScenarioSteps {
     }
     @Step("Clicking submit")
     public void clickOnSubmit(){
-        loginPage.scrollToElement(loginPage.submitBtn).click();
+        loginPage.scrollToElement(loginPage.
+                submitBtn).click();
     }
 
     @Step("Verifying login button is disabled")
@@ -42,8 +44,10 @@ public class LoginSteps extends ScenarioSteps {
         loginPage.submitBtn.shouldNotBeEnabled();
     }
 
-
-
+    @Step("Verifying the confirmation page")
+    public void iSeeConfirmationPage(){
+        loginPage.reviewtext.containsText("Review");
+    }
 }
 
 
